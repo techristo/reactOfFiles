@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>components</title>
+</head>
+<body>
+    <div id="root"></div>
+
+    <!-- Include React and ReactDOM scripts -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
+
+    <!-- Include TypeScript and Babel standalone files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.5.4/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <!-- Your React component written in TypeScript -->
+    <script type="text/babel">
+       
+
+        function MyButton({ title }: { title: string }) {
+  return (
+    <button>{title}</button>
+  );
+}
+
+function MyApp() {
+  return (
+    <div>
+      <h1>Welcome to my app</h1>
+      <MyButton title="I'm a button" />
+    </div>
+  );
+}
+		
+		
+		// Render your component
+        ReactDOM.render(
+            <MyApp name="World" />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
+</html>
