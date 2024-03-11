@@ -1,30 +1,37 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8" />
-        <meta name="viewport" content="width=device-width, initial-scale=1" />
-        <title>"text/typescript" example</title>
-        <meta name="description" content="Transpiling and executing TypeScript in the browser" />
-        <style>
-            body {
-                overflow: hidden;
-                margin: 0px;
-                font-size: 15vw;
-            }
-        </style>
-        <script type="text/typescript">
-            function foo(bar: string) {
-                return "Hello " + bar;
-            }
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>React with TypeScript in HTML</title>
+</head>
+<body>
+    <div id="root"></div>
 
-            let baz = "World!";
+    <!-- Include React and ReactDOM scripts -->
+    <script src="https://unpkg.com/react@17/umd/react.development.js"></script>
+    <script src="https://unpkg.com/react-dom@17/umd/react-dom.development.js"></script>
 
-            document.getElementById("root").innerHTML = foo(baz);
-        </script>
-        <script src="https://cdn.jsdelivr.net/npm/typescript@5.3.3"></script>
-        <script defer src="https://cdn.jsdelivr.net/npm/text-typescript@1.3.0"></script>
-    </head>
-    <body>
-        <div id="root"></div>
-    </body>
+    <!-- Include TypeScript and Babel standalone files -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/typescript/4.5.4/typescript.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/babel-standalone/6.26.0/babel.min.js"></script>
+
+    <!-- Your React component written in TypeScript -->
+    <script type="text/babel">
+        // Define your component
+        interface Props {
+            name: string;
+        }
+
+        const MyComponent: React.FC<Props> = ({ name }) => {
+            return <div>Hello, {name}!</div>;
+        };
+
+        // Render your component
+        ReactDOM.render(
+            <MyComponent name="World" />,
+            document.getElementById('root')
+        );
+    </script>
+</body>
 </html>
